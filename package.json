@@ -1,0 +1,14 @@
+{
+    "name": "iv.unity-component-binder",
+    "version": "0.0.1",
+    "description": "A package that statically binds Unity MonoBehaviour components",
+    "unity": "2019.4",
+    "displayName": "Unity static component binder",
+    "dependencies": {
+    },
+    "keywords": [
+        "unity",
+        "component",
+        "binder"
+    ]
+}

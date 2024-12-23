@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <!-- Unity supported version (as of Unity 6) -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <Nullable>disable</Nullable>
+
+    <ProjectName>IV.UnityBinder.SourceGenerator</ProjectName>
+
+    <!-- Don't generate intermidiate folder 'netstandard2.0' -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IsRoslynComponent>true</IsRoslynComponent>
+
+    <AssemblyName>IV.UnityBinder.SourceGenerator</AssemblyName>
+    <RootNamespace>IV.UnityBinder.SourceGenerator</RootNamespace>
+    <PackageId>IV.UnityBinder.SourceGenerator</PackageId>
+    <Version>0.0.1</Version>
+
+    <Company>IV</Company>
+    <Authors>IV</Authors>
+
+    <GenerateSolutionFile>false</GenerateSolutionFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" />
+  </ItemGroup>
+
+  <!-- To modify build process.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+
+  <!-- Copy an artifact (DLL) to the UPM package -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Release' ">
+    <Exec Command="xcopy /Y /I bin\$(Configuration)\$(AssemblyName).dll ..\Plugins\" />
+  </Target>
+</Project>
