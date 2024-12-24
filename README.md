@@ -4,7 +4,8 @@ It's artifact is a `DLL` which goes to package's `./Editor/Plugins` folder to be
 
 ### Usage (see [Unity documentation](https://docs.unity3d.com/6000.0/Documentation/Manual/create-source-generator.html))
 
-1. Set (via `./Packages/manifest.json`) the UPM package as the main project's dependency.
+1. Set (via `./Packages/manifest.json`) the UPM package as the main project's dependency
+   > “iv.unity-component-binder”: “https://github.com/iveyalkin/roslyn-generators.git”
 2. Optional, if there are explicit assembly definition files in the main project.
    Refer package's `IV.UnityBinder` assembly as a dependency to main project's assemblies that need to be processed (for which the source generation should happen).
 
